@@ -1,4 +1,5 @@
 import style from '../../Molecules/loginMolecules/molecules.module.css';
+import { Link } from 'react-router-dom';
 
 function Login() {
     return ( 
@@ -20,7 +21,7 @@ function Login() {
                     <input type="password" id={style.inputField} placeholder="Password" />
                 </div>
                         
-                <button  id={style.button}>Submit</button>
+                <Link to="/grafica" className="cursor-pointer"><button  id={style.button}>Submit</button></Link>
                 <a id={style.forgotLink} href="#">Forgot your password?</a>
                 </div>
             </form>
