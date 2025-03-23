@@ -12,17 +12,21 @@ function Header() {
     const riego = () => {
         navigate('/activar-agua');
     }
+
+    const home = () => {
+        navigate('/home');
+    }
     return ( 
         <>
-            <header className="bg-[#4f756f] w-full h-auto flex items-center justify-between p-1 pl-10 pr-10 pb-4">
+            <header className="bg-[#89bdb6] w-full h-auto flex items-center justify-between p-1 pl-10 pr-10 pb-4">
                 <div className='flex items-center'>
-                <img src={logo} alt=""  className='w-28'/>
+                <img src={logo} alt=""  className='w-28 cursor-pointer' onClick={home}/>
                 </div>
 
                 <div className='text-center'>
                     <div className='mt-3'>
-                    <p className='text-4xl text-[#accfbd]' id={style.textJua}>AGRO-WATCH</p>
-                    <p id={style.textDelgadiata} className='text-[3.3vh] -mt-2 text-[#95c0ad]'>CILANTROS</p>
+                    <p className='text-4xl text-[#ffffff]' id={style.textJua}>AGRO-WATCH</p>
+                    <p id={style.textDelgadiata} className='text-[3.3vh] -mt-2 text-[#5a6b63]'>CILANTROS</p>
                     </div>
                     <div className='flex items-center text-[2.6vh] gap-24 mt-2'>
                         <p onClick={estadisticas} className='cursor-pointer' id={style.textGruesa}>Estado de cilantros</p>

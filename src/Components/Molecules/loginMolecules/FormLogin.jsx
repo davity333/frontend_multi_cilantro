@@ -1,6 +1,10 @@
 import style from '../../Molecules/loginMolecules/molecules.module.css';
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
+    const navigate = useNavigate();
+    const login = () =>{
+        navigate('/home')
+    }
     return ( 
         <>
             <form action="" id={style.form_main} className=''>
@@ -20,7 +24,7 @@ function Login() {
                     <input type="password" id={style.inputField} placeholder="Password" />
                 </div>
                         
-                <button  id={style.button}>Submit</button>
+                <button onClick={login} id={style.button}>Entrar</button>
                 <a id={style.forgotLink} href="#">Forgot your password?</a>
                 </div>
             </form>

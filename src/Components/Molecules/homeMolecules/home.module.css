@@ -1,0 +1,62 @@
+#cilantro{
+    height: 80vh;
+    width: 100%;
+    background-image: url("../../../../public/cilantroMaceta.jpeg");
+    background-size: cover;
+    transform: translateX(20vh);
+    overflow: hidden;
+}
+
+#maceta{
+  transform: translateX(0vh);
+  transform:  translateY(10vh);
+  
+}
+
+#textEffect {
+    font-family: "Jockey One";
+  font-weight: 400;
+  font-style: normal;
+    
+    font-size: 4rem;
+    color: #211d1d;
+    text-transform: uppercase;
+  }
+
+  
+  #linea {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    font-weight:790;
+    font-size: 6vh;
+    animation: blink 0.7s steps(2) infinite;
+    opacity: 0;
+    color:#91b788
+  }
+  
+  #FontWeight{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: -0.2px;
+  }
+  
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  #cilantro::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%; /* Ajusta la altura del degradado según necesites */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 6%, rgb(255, 255, 255) 80%);
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }

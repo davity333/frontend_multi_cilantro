@@ -116,7 +116,7 @@
   left: 0;
   width: 100%;
   height: 80%;
-  background-color: rgba(0, 0, 0, 0.26); /* Oscurece la imagen */
+  background-color: rgba(0, 0, 0, 0.275); /* Oscurece la imagen */
   z-index: 1;
   margin-top: 9.5%;
 }

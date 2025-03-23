@@ -1,2 +1,7 @@
 GRAFICA ANT-DESING-CHART
 react-chartjs-2
+
+
+quiero que se conecte al rabbit  el nuevo exchange llamado events.direct con rounting kell systemWater.esp32 y reciba los mensajes
+esto es lo que tiene la queue en el rabbitmq {"idsystem_water":0,"status":"on","date":"18 de marzo de 2025","timewater":"","horary":"00:00:07","IdUser":0}
+y quiero que cuando status = on, se prensa la bomba
