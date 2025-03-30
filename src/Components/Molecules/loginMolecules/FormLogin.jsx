@@ -1,9 +1,16 @@
 import style from '../../Molecules/loginMolecules/molecules.module.css';
-
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import ForgetPass from '../userPerfil/userPerfil';
 function Login() {
+    const [modalForget, setModalForget] = useState(false)
     const navigate = useNavigate();
     const login = () =>{
         navigate('/home')
+    }
+
+    const forget = () =>{
+        setModalForget(true)
     }
     return ( 
         <>
@@ -24,8 +31,8 @@ function Login() {
                     <input type="password" id={style.inputField} placeholder="Password" />
                 </div>
                         
-                <button  id={style.button}>Submit</button>
-                <a id={style.forgotLink} href="#">Forgot your password?</a>
+                <button  id={style.button} onClick={login}>Submit</button>
+                <p id={style.forgotLink} onClick={forget} className='cursor-pointer border-2'>Forgot your password?</p>
                 </div>
             </form>
         </>

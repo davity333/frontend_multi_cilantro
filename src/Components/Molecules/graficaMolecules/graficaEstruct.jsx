@@ -42,7 +42,7 @@ function GraficaEstruct() {
   const [tempAlertActive, setTempAlertActive] = useState(false);
   
   // Conectar al WebSocket
-  const { messages } = useWebSocket("ws://localhost:4000/ws");
+  const { messages } = useWebSocket("ws://welcomw:4000/ws");
   
   // Manejar los nuevos mensajes del WebSocket
   useEffect(() => {    

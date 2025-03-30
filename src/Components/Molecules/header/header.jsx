@@ -1,5 +1,6 @@
 import logo from '/logo.png'
 import logout from '/logout.gif';
+import user from '/user.png'
 import { useNavigate } from 'react-router-dom';
 import style from "../../../Components/Molecules/text.module.css"
 function Header() {
@@ -16,11 +17,15 @@ function Header() {
     const home = () => {
         navigate('/home');
     }
+
+    const userPerfil = () => {
+        navigate('/perfil')
+    }
     return ( 
         <>
-            <header className="bg-[#89bdb6] w-full h-auto flex items-center justify-between p-1 pl-10 pr-10 pb-4">
-                <div className='flex items-center'>
-                <img src={logo} alt=""  className='w-28 cursor-pointer' onClick={home}/>
+            <header className="bg-[#89bdb6] w-full h-auto flex items-center justify-between p-1 pr-10 pb-4">
+                <div className='flex items-center ml-4'>
+                <img src={logo} alt=""  className='w-44 cursor-pointer' onClick={home}/>
                 </div>
 
                 <div className='text-center'>
@@ -34,7 +39,8 @@ function Header() {
                         <p id={style.textGruesa} className='cursor-pointer'>Recomendaciones</p>
                     </div>
                 </div>
-                <div>
+                <div className='flex gap-9'>
+                    <img src={user} onClick={userPerfil} alt="" className='w-10 cursor-pointer'/>
                     <img src={logout} alt="" className='w-10'/>
                 </div>
             </header>

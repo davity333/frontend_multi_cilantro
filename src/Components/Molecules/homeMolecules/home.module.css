@@ -1,10 +1,34 @@
 #cilantro{
     height: 80vh;
     width: 100%;
-    background-image: url("../../../../public/cilantroMaceta.jpeg");
+    background-image: url("../../../../public/cilantros.png");
     background-size: cover;
-    transform: translateX(20vh);
     overflow: hidden;
+}
+
+#rain {
+  background-image: url("../../../../public/rain.gif");
+  background-size: cover;
+  overflow: hidden;
+  height: 80vh;
+  width: 100%;
+  animation: rain 4s infinite; /* Duración de 4 segundos, repetido infinitamente */
+}
+
+@keyframes rain {
+  0%, 100% {
+    opacity: 0; /* Invisible al inicio y al final */
+  }
+  50% {
+    opacity: 1; /* Visible en el medio de la animación */
+  }
+}
+
+
+#hojita{
+  background-image: url("../../../../public/cilantro4.png");
+  background-size: cover;
+  overflow: hidden;
 }
 
 #maceta{
@@ -31,7 +55,7 @@
     font-size: 6vh;
     animation: blink 0.7s steps(2) infinite;
     opacity: 0;
-    color:#91b788
+    color:#E3B664
   }
   
   #FontWeight{
@@ -60,3 +84,56 @@
     z-index: 1;
     overflow: hidden;
   }
+
+  #btnBorder {
+    border: 2px solid transparent; /* Borde transparente */
+    background: transparent; /* Sin color de fondo */
+    border-radius: 0px; /* Borde no redondeado inicialmente */
+    border-image: linear-gradient(90deg, rgb(188, 212, 4) 0%, rgb(26, 252, 64) 100%);
+    border-image-slice: 1;
+  }
+
+  #brillo {
+    -webkit-box-shadow: 10px 0px 300px 190px #2ad404;
+-moz-box-shadow: 10px 0px 300px 190px #2ad404;
+box-shadow: 10px 0px 300px 190px #2ad404;
+
+position: absolute; /* Asegura que el transform funcione */
+transform: translateY(20%) translateX(-100%);
+}
+
+#iconZoom:hover{
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+#iconZoom {
+  transition: transform 0.2s;
+  transform: scale(1);
+}
+
+#degradation{
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 21%, rgba(236,224,224,1) 55%, rgba(236,224,224,1) 64%, rgba(248,243,243,1) 86%, rgba(255,255,255,1) 100%);
+}
+
+#cilantroUser{
+    height: 80vh;
+    width: 100%;
+    background-image: url("../../../../public/fondoCilantroAnimated.jpeg");
+    background-size: cover;
+    overflow: hidden;
+}
+
+#cilantroUser::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%; /* Ajusta la altura del degradado según necesites */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.386) 80%);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
