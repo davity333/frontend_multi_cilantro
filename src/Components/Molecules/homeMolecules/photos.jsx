@@ -1,5 +1,7 @@
 import sensor from '/cilantroSensor.png'
 import grafica from '/cilantroGrafica.jpg'
+import tierra from '/tierra.jpg'
+import style from '../homeMolecules/home.module.css'
 function Photos() {
     return ( 
         <>
@@ -7,7 +9,6 @@ function Photos() {
                 <hr className='h-[0.1] w-[80vh]'/>
                 <div className='w-4 h-4 rounded-full bg-black'></div>
                 <hr className='h-[0.1] w-[80vh]'/>
-
             </div>
 
             <section className='flex flex-col md:flex-row ml-4 md:ml-28 gap-8 mt-10'>
@@ -95,6 +96,10 @@ function Photos() {
                 <img src={grafica} alt="Cilantro Sensor" className='w-full md:w-[75vh] rounded-lg shadow-md'/>
 
             </section>
+            <div className='flex flex-col justify-center items-center mt-24 pb-20 text-3xl '>
+            <p id={style.gracias} className='text-5xl text-[#26946b]'>Gracias por usar AgroWatch</p>
+            </div>
+            <img src={tierra} className='w-full h-[70vh]' alt="" />
         </>
     );
 }

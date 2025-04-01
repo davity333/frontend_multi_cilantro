@@ -21,6 +21,10 @@ function Header() {
     const userPerfil = () => {
         navigate('/perfil')
     }
+
+    const logoutExit = () => {
+        navigate('/');
+    }
     return ( 
         <>
             <header className="bg-[#89bdb6] w-full h-auto flex items-center justify-between p-1 pr-10 pb-4">
@@ -41,7 +45,7 @@ function Header() {
                 </div>
                 <div className='flex gap-9'>
                     <img src={user} onClick={userPerfil} alt="" className='w-10 cursor-pointer'/>
-                    <img src={logout} alt="" className='w-10'/>
+                    <img src={logout} alt="" className='w-10' onClick={logoutExit}/>
                 </div>
             </header>
             <div className='h-[1vh] bg-[#6c958e]'></div>
