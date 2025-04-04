@@ -9,3 +9,55 @@
 #cilantro3{
     transform: translateX(-50vh) translateY(20vh) rotate(20deg)
 }
+
+#fondoCilantro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+#fondoCilantro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("fondoWifiCilantros.jpeg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px); /* Solo el fondo se desenfoca */
+    opacity: 0.8;
+}
+
+.textContainer {
+    position: relative; /* Mantiene el texto encima del fondo */
+    z-index: 1; /* Asegura que el texto esté sobre el fondo */
+    color: black;
+    font-size: 2rem;
+}
+
+#manual{
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#scrollableSection {
+    width: 100%;
+    height: 90vh; /* Ajusta según lo que necesites para el scroll */
+    overflow-y: scroll; /* Activa el scroll vertical */
+    background-color: white; /* Fondo blanco que cubre todo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el contenido */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno para comodidad de lectura */
+}
+
+#volver{
+    font-family: "Jockey One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

@@ -156,49 +156,97 @@ function GraficaEstruct() {
   };
 
   return (
-    <div className="w-[150vh] h-[60vh] px-4 bg-[#ceffd143]">
-      <div className="flex justify-between items-center">
-        <p className='p-7 text-[3.6vh] font-bold text-[#7ab37f]'>Estado del cilantro</p>
+    <div className="w-full h-full p-20 bg-gradient-to-br from-green-50 to-orange-50 rounded-xl shadow-lg">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+        <div className="flex items-center mb-4 md:mb-0">
+          <svg className="w-8 h-8 mr-3 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
+          </svg>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+            Estado del Cilantro
+          </h1>
+        </div>
         
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 w-full md:w-auto">
           {moistureAlertActive && (
-            <div className="p-4 bg-red-100 border-l-4 border-red-500 text-red-700 flex items-center">
-              <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="p-3 bg-red-100 border-l-4 border-red-500 text-red-700 flex items-center rounded-r-lg shadow-sm">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
               </svg>
-              <span>¡ALERTA! Nivel de humedad bajo</span>
+              <span className="font-medium">¡ALERTA! Nivel de humedad bajo</span>
             </div>
           )}
           
           {tempAlertActive && (
-            <div className="p-4 bg-amber-100 border-l-4 border-amber-500 text-amber-700 flex items-center">
-              <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="p-3 bg-orange-100 border-l-4 border-orange-500 text-orange-700 flex items-center rounded-r-lg shadow-sm">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
               </svg>
-              <span>¡ALERTA! Temperatura elevada</span>
+              <span className="font-medium">¡ALERTA! Temperatura elevada</span>
             </div>
           )}
         </div>
       </div>
       
-      <div className="flex gap-4">
-        <div className="mb-4 p-2 bg-white bg-opacity-70 rounded-lg flex-1">
-          <span className="font-medium">Estado de humedad: </span>
-          <span className={`${lastMoistureMessage.includes('ALERTA') ? 'text-red-600 font-bold' : 'text-green-600'}`}>
-            {lastMoistureMessage || "Esperando datos..."}
-          </span>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-md border-l-4 border-green-500 hover:shadow-lg transition-shadow">
+          <div className="flex items-center mb-2">
+            <svg className="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 7a1 1 0 11-2 0 1 1 0 012 0zm-3 3a1 1 0 11-2 0 1 1 0 012 0zm-3 3a1 1 0 11-2 0 1 1 0 012 0z"></path>
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"></path>
+            </svg>
+            <span className="font-semibold text-gray-700">Estado de Humedad</span>
+          </div>
+          <div className={`px-3 py-2 rounded-md ${lastMoistureMessage?.includes('ALERTA') ? 'bg-red-50' : 'bg-green-50'}`}>
+            <span className={`text-lg ${lastMoistureMessage?.includes('ALERTA') ? 'text-red-600 font-bold' : 'text-green-600'}`}>
+              {lastMoistureMessage || "Esperando datos..."}
+            </span>
+          </div>
         </div>
         
-        <div className="mb-4 p-2 bg-white bg-opacity-70 rounded-lg flex-1">
-          <span className="font-medium">Estado de temperatura: </span>
-          <span className={`${lastTempMessage.includes('ALERTA') ? 'text-amber-600 font-bold' : 'text-green-600'}`}>
-            {lastTempMessage || "Esperando datos..."}
-          </span>
+        <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-md border-l-4 border-orange-500 hover:shadow-lg transition-shadow">
+          <div className="flex items-center mb-2">
+            <svg className="w-5 h-5 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 000-12v12z" clipRule="evenodd"></path>
+            </svg>
+            <span className="font-semibold text-gray-700">Estado de Temperatura</span>
+          </div>
+          <div className={`px-3 py-2 rounded-md ${lastTempMessage?.includes('ALERTA') ? 'bg-orange-50' : 'bg-green-50'}`}>
+            <span className={`text-lg ${lastTempMessage?.includes('ALERTA') ? 'text-orange-600 font-bold' : 'text-green-600'}`}>
+              {lastTempMessage || "Esperando datos..."}
+            </span>
+          </div>
         </div>
       </div>
       
-      <div className="h-[45vh]">
-        <Line options={options} data={data} />
+      <div className="bg-white bg-opacity-90 p-4 rounded-lg shadow-md h-64 md:h-80">
+        <Line data={data} options={{
+          ...options,
+          plugins: {
+            ...options.plugins,
+            legend: {
+              ...options.plugins?.legend,
+              labels: {
+                ...options.plugins?.legend?.labels,
+                usePointStyle: true,
+                font: {
+                  size: 12
+                }
+              }
+            },
+            tooltip: {
+              ...options.plugins?.tooltip,
+              backgroundColor: 'rgba(52, 211, 153, 0.8)',
+              titleColor: 'white',
+              bodyColor: 'white',
+              borderColor: '#34D399',
+              borderWidth: 1,
+              padding: 10,
+              boxPadding: 5,
+              usePointStyle: true
+            }
+          }
+        }} />
       </div>
     </div>
   );

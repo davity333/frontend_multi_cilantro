@@ -44,22 +44,20 @@ function Login() {
         throw new Error(data.error || "Error al iniciar sesión");
       }
 
-      if (!data || !data.user || !data.user.username || !data.user.id) {
+      if (!data || !data.user || !data.user.username || !data.user.id || !data.user.role) {
         throw new Error("Respuesta del servidor incompleta");
       }
-
-      const { username } = data.user;
-      const id = data.id;
-      //const token = data.token;
-      //console.log("Token recibido:", token);
-
-      //localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify({ username, id }));
+  
+      // Extraemos los valores correctamente
+      const { username, role, id } = data.user; // role ahora se extrae correctamente desde user
+      const token = response.headers.get("Authorization");
+  
+      console.log("Token recibido:", token);
+      localStorage.setItem("token", token.replace("Bearer ", ""));
+      localStorage.setItem("user", JSON.stringify({ username, id, role }));
 
       setIsGood(true);
       setIsError(false);
-
-
       setTimeout(() => {
       navigate("/home");
       }, 2000);
