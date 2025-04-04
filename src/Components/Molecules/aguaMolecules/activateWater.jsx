@@ -4,11 +4,11 @@ import styles from '../loginMolecules/molecules.module.css'
 import React, { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
 function ActivateWater() {
-    const [status, setStatus] = useState('');
-    const [dateToday, setDateToday] = useState(new Date());
-    const [timeWater, setTimeWater] = useState('');
-    const [horary, setHorary] = useState('');
-    const [idUser, setIdUser] = useState(0);
+    const [command, setCommand] = useState("");
+   // const [dateToday, setDateToday] = useState(new Date());
+    //const [timeWater, setTimeWater] = useState('');
+   // const [horary, setHorary] = useState('');
+    const [user, setUser] = useState("sp32sk342");
     const [button, setButton] = useState(false);
     useEffect(() => {
 
@@ -31,20 +31,21 @@ function ActivateWater() {
         console.log("la fecha es:", formattedTime);
         console.log("la hora es: ",fechaHoy);
         // Estado manual activado
-        setStatus('on');
+        setCommand('ON');
         setButton(true);
+        const payload = {
+            type: 'bombwater',
+            command: command,   
+            user: user  
+        }
         try {
-            const response = await fetch('http://localhost:8080/v1/water/add', {
+            const response = await fetch('http://127.0.0.1:4000/v1/message/messageFertilizer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    status: 'on',             
-                    date: fechaHoy,                 
-                    horary: formattedTime,     
-                    idUser: idUser  
-                }),
+                body: JSON.stringify(payload),
+                
             });
 
             Swal.fire({
@@ -52,10 +53,11 @@ function ActivateWater() {
                 icon: "success",
                 draggable: true
               });
+             
+              
     
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
-                alert("Error al jalar la api")
             }
     
         } catch (error) {
