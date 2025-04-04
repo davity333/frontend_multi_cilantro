@@ -63,9 +63,9 @@ function GraficaEstruct() {
   });
   
   // Usar el hook WebSocket mejorado
-  const { messages, isConnected, error, sendMessage, reconnect } = useWebSocket('ws://localhost:4000/v1/message/ws');
+  const { messages, isConnected, error, sendMessage, reconnect } = useWebSocket('ws://52.23.135.169:4000/v1/message/ws');
 
-  // Mostrar token para depuración
+  // Mostrar token para depuración  
   const handleShow = () => {
     const token = localStorage.getItem('token');
     alert(token ? `Token: ${token}` : 'No token found');

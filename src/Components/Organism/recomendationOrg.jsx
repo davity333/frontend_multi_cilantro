@@ -18,7 +18,7 @@ function RecomendationOrg() {
     const [connectionError, setConnectionError] = useState("");
     
     // Usar el hook WebSocket
-    const { messages, isConnected, error, reconnect } = useWebSocket('ws://localhost:4000/v1/message/ws');
+    const { messages, isConnected, error, reconnect } = useWebSocket('ws://52.23.135.169:4000/v1/message/ws');
     
     // Actualizar el estado de error de conexión
     useEffect(() => {

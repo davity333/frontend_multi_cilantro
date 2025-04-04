@@ -149,7 +149,7 @@ function ActivateWater() {
         }
         
         try {
-            const response = await fetch('http://127.0.0.1:4000/v1/message/messageFertilizer', {
+            const response = await fetch('http://52.23.135.169:4000/v1/message/messageFertilizer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

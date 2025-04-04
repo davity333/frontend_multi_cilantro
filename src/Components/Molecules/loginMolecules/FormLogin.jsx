@@ -29,7 +29,7 @@ function Login() {
 
     try {
       
-      const response = await fetch("http://localhost:8080/v1/users/login", {
+      const response = await fetch("http://18.232.225.48:8080/v1/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
