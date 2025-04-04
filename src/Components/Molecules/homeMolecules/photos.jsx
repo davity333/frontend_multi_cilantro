@@ -2,7 +2,15 @@ import sensor from '/cilantroSensor.png'
 import grafica from '/cilantroGrafica.jpg'
 import tierra from '/tierra.jpg'
 import style from '../homeMolecules/home.module.css'
+import { useNavigate } from "react-router-dom";
 function Photos() {
+    const navigate = useNavigate();
+    const handleNavigateWater = () => {
+        navigate('/activar-agua');
+    };
+    const handleNavigateGrafica = () => {
+        navigate('/grafica');
+    };
     return ( 
         <>
             <div className='flex justify-center gap-10 items-center opacity-40'>
@@ -32,7 +40,7 @@ function Photos() {
                     
                     {/* Botón decorativo "Explorar" */}
                     <div className="mt-8">
-                        <button className="relative overflow-hidden group px-8 py-3 
+                        <button onClick={handleNavigateWater} className="relative overflow-hidden group px-8 py-3 
                         bg-gradient-to-r from-[#6a8d9a] to-[#89b0be] 
                         text-white font-medium rounded-lg shadow-md transform 
                         transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
@@ -74,7 +82,7 @@ function Photos() {
                     
                     {/* Botón decorativo "Explorar" */}
                     <div className="mt-8">
-                        <button className="relative overflow-hidden group px-8 py-3 
+                        <button onClick={handleNavigateGrafica} className="relative overflow-hidden group px-8 py-3 
                         bg-gradient-to-r from-[#959a6a] to-[#adbe89] 
                         text-white font-medium rounded-lg shadow-md transform 
                         transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">

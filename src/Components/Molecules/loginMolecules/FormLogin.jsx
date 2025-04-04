@@ -7,7 +7,7 @@ function Login() {
     const [formData, setFormData] = useState({ user: "", password: "" });
     const [isError, setIsError] = useState(false);
     const [isGood, setIsGood] = useState(false); 
-    const navigate = new useNavigate();
+    const navigate = useNavigate();
     const [modalForget, setModalForget] = useState(false)
 
     const onChange = (e) => {
@@ -21,7 +21,6 @@ function Login() {
 
     const login = async (e) => {
     e.preventDefault();
-
     const loginData = {
       username: formData.user,
       password: formData.password,
@@ -29,6 +28,7 @@ function Login() {
     console.log(loginData);
 
     try {
+      
       const response = await fetch("http://localhost:8080/v1/users/login", {
         method: "POST",
         headers: {
@@ -39,22 +39,30 @@ function Login() {
 
       const data = await response.json();
       console.log("Respuesta del servidor:", data);
-
+      if (response.ok){
+        navigate("/home");
+        const { username, role, id } = data.user; // role ahora se extrae correctamente desde user
+        const token = response.headers.get("Authorization");
+    
+        console.log("Token recibido:", token);
+        localStorage.setItem("token", token.replace("Bearer ", ""));
+        localStorage.setItem("user", JSON.stringify({ username, id, role }));
+      
+      }
       if (!response.ok) {
+        alert("Error al iniciar sesión");
         throw new Error(data.error || "Error al iniciar sesión");
       }
 
       if (!data || !data.user || !data.user.username || !data.user.id || !data.user.role) {
         throw new Error("Respuesta del servidor incompleta");
       }
+      if(data.user.role === "superuser"){
+        navigate("/addUsers");
+      }
   
       // Extraemos los valores correctamente
-      const { username, role, id } = data.user; // role ahora se extrae correctamente desde user
-      const token = response.headers.get("Authorization");
-  
-      console.log("Token recibido:", token);
-      localStorage.setItem("token", token.replace("Bearer ", ""));
-      localStorage.setItem("user", JSON.stringify({ username, id, role }));
+
 
       setIsGood(true);
       setIsError(false);
