@@ -1,18 +1,18 @@
 #cilantro{
     height: 80vh;
     width: 100%;
-    background-image: url("../../../../public/cilantros.png");
+    background-image: url("/cilantros.png");
     background-size: cover;
     overflow: hidden;
 }
 
 #rain {
-  background-image: url("../../../../public/rain.gif");
+  background-image: url("/rain.gif");
   background-size: cover;
   overflow: hidden;
   height: 80vh;
   width: 100%;
-  animation: rain 4s infinite; /* Duración de 4 segundos, repetido infinitamente */
+  animation: rain 4s infinite; 
 }
 
 @keyframes rain {
