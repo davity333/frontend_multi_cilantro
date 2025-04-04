@@ -10,7 +10,7 @@ function Photos() {
                 <div className='w-4 h-4 rounded-full bg-black'></div>
                 <hr className='h-[0.1] w-[80vh]'/>
             </div>
-
+            <img src="" alt="" />
             <section className='flex flex-col md:flex-row ml-4 md:ml-28 gap-8 mt-10'>
                 <img src={sensor} alt="Cilantro Sensor" className='w-full md:w-[75vh] rounded-lg shadow-md'/>
                 <div className='mt-5 max-w-xl'> 
